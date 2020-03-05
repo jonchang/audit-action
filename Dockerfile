@@ -1,6 +1,6 @@
-FROM alpine:3.10
+FROM homebrew/brew:latest
 
-COPY LICENSE README.md /
+COPY brew-audit.json /
 
 COPY entrypoint.sh /entrypoint.sh
 
