@@ -1,5 +1,23 @@
-# Container Action Template
+# Homebrew Formula Audit Action
 
-To get started, click the `Use this template` button on this repository [which will create a new repository based on this template](https://github.blog/2019-06-06-generate-new-repositories-with-repository-templates/).
+An action that audits your [Homebrew formula](https://brew.sh) using the built-in `brew audit` command. Audit problems identified will be annotated with inline annotations for easy correction.
 
-For info on how to build your first Container action, see the [toolkit docs folder](https://github.com/actions/toolkit/blob/master/docs/container-action.md).
+![Example of an audit action with inline annotations](audit-example.png)
+
+## Usage
+
+```yaml
+name: Audit Homebrew Formula
+on:
+  push:
+    branches: master
+  pull_request: []
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    container:
+      image: homebrew/brew
+    steps:
+    - uses: actions/checkout@v2
+    - uses: jonchang/audit-action@master
+```
