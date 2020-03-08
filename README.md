@@ -15,8 +15,6 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
-    container:
-      image: homebrew/brew
     steps:
     - uses: actions/checkout@v2
     - uses: jonchang/audit-action@master
